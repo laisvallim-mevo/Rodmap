@@ -739,6 +739,11 @@
         <div class="tl-bar tl-clickable" style="background:var(--spec); grid-column:10/13;" onclick="openModal('spec')">🏥 Specialty</div>
       </div>
 
+      <!-- POC Beep Saúde: S2→S4 (20/07–28/08) -->
+      <div class="tl-row">
+        <div class="tl-bar tl-clickable" style="background:#0E9488; grid-column:2/5;" onclick="openModal('beep')">🩺 POC · Integração Beep Saúde</div>
+      </div>
+
     </div>
    </div>
   </div>
@@ -867,6 +872,25 @@
         </div>
         <div class="card-revenue" style="color:var(--inicio);">R$ 900K</div>
         <div class="card-rev-label">Receita prevista · 18 meses</div>
+      </div>
+    </div>
+
+    <div class="card" onclick="openModal('beep')">
+      <div class="card-header">
+        <div class="card-icon" style="background:#D6F5F2;">🩺</div>
+        <div class="card-meta">
+          <span class="card-tag" style="background:#D6F5F2; color:#0E9488;">Vertical 7 · Parceria</span>
+          <div class="card-title">POC · Integração Beep Saúde</div>
+        </div>
+      </div>
+      <div class="card-body">
+        <p class="card-desc">Agendamento de cuidados domiciliares (ex: vacinação) diretamente após a prescrição, via parceria com a Beep Saúde. Modelo de comissão de 7% sobre o serviço agendado. POC restrita a uma única vacina para validar o fluxo.</p>
+        <div class="card-row">
+          <span class="card-chip">🗓 Q3/26 · Jul–Ago</span>
+          <span class="card-chip">Épico NN-752</span>
+        </div>
+        <div class="card-revenue" style="color:#0E9488;">A validar</div>
+        <div class="card-rev-label">POC · 4 stories de validação</div>
       </div>
     </div>
 
@@ -1209,6 +1233,25 @@ const data = {
     ],
     mercado: 'R$ 85–90Bi em 2026. Canal non-retail specialty é o principal vetor de crescimento da farma no Brasil. Ticket alto + uso recorrente = alto valor por paciente ativo.',
     receita: 'R$ 2,4M em 18 meses'
+  },
+  beep: {
+    icon: '🩺', iconBg: '#D6F5F2',
+    tag: 'Julho → Agosto 2026 · POC Beep Saúde', tagColor: '#0E9488', tagBg: '#D6F5F2',
+    title: 'POC · Integração Beep Saúde',
+    problema: 'Hoje a jornada do paciente termina na prescrição: a Mevo não tem um caminho estruturado para conectar a indicação médica a serviços de cuidado domiciliar (como vacinação) que poderiam ser agendados no mesmo momento. Isso deixa receita e valor de jornada completa na mesa, além de exigir do paciente um esforço adicional de buscar e agendar o serviço por conta própria.',
+    solucao: [
+      'Parceria com a Beep Saúde para oferecer agendamento de cuidados domiciliares (iniciando por vacinação) diretamente no fluxo pós-prescrição.',
+      'Modelo de comissão de 7% sobre o serviço agendado através da plataforma.',
+      'POC deliberadamente restrita a uma única vacina para reduzir variáveis e validar o fluxo ponta a ponta antes de qualquer expansão de catálogo.',
+      'Escopo dividido em 4 stories (MEVO-5181 a 5184): validação técnica da integração com a Beep, validação de UX no fluxo de prescrição, e validação de conversão (o médico de fato direciona o paciente para o agendamento?).'
+    ],
+    fases: [
+      { badge: 'Jul 2026 🔴', text: 'Validação técnica da integração com a API da Beep Saúde.' },
+      { badge: 'Jul–Ago 2026 🔴', text: 'Validação de UX: onde e como a oferta aparece no fluxo de prescrição, sem gerar fricção.' },
+      { badge: 'Ago 2026 🟢', text: 'Validação de conversão com a vacina piloto — métrica de sucesso para decidir expansão do catálogo.' }
+    ],
+    mercado: 'Beep Saúde atua em agendamento de cuidados domiciliares (vacinação, exames, enfermagem) sob demanda. Para a Mevo, é a primeira ponte real entre prescrição e execução do cuidado, abrindo caminho para o conceito de Jornada Completa do paciente.',
+    receita: 'POC · sem meta de receita nesta fase, foco em validação de fluxo e conversão'
   }
 };
 function openModal(id) {
